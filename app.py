@@ -39,7 +39,6 @@ def callback():
         handler.handle(body, signature)
     except InvalidSignatureError:
         abort(400)
-
     return 'OK'
 
 @handler.add(MessageEvent, message=TextMessage)
@@ -48,5 +47,6 @@ def handle_text_message(event):
     
     if (text.lower()) == 'organization':
             line_bot_api.reply_message(event.reply_token,TextMessage(text=meraki.orgdetail()))
-   if __name__ == "__main__":
+            
+if __name__ == "__main__":
   app.run(host='0.0.0.0',port=os.environ['PORT'])
