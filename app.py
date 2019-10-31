@@ -44,9 +44,10 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_text_message(event):
     text = event.message.text #message from user
-    
     if (text.lower()) == 'organization':
             line_bot_api.reply_message(event.reply_token,TextMessage(text=meraki.orgdetail()))
+     else : 
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text='What is  '+text+'  Im Not Understand'))
             
 if __name__ == "__main__":
   app.run(host='0.0.0.0',port=os.environ['PORT'])
