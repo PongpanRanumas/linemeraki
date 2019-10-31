@@ -48,7 +48,7 @@ def handle_text_message(event):
     if (text.lower()) == 'organization':
             line_bot_api.reply_message(event.reply_token,TextMessage(text=meraki.orgdetail()))
     else : 
-            line_bot_api.reply_message(event.reply_token,TextSendMessage(text='What is  '+text+'  Im Not Understand'))
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text='What is  '+text+'  MerakiPongpan Not Understand'))
             
 if __name__ == "__main__":
   app.run(host='0.0.0.0',port=os.environ['PORT'])
