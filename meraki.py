@@ -29,7 +29,7 @@ def orgdetail():
     return(text)
 
 def networkdetail():  
-    NetworkURL = 'https://api.meraki.com/api/v0/networks/L_602356450160822827'
+    NetworkURL = 'https://api.meraki.com/api/v0/networks/L_610800699462124274'
     NetRes = requests.request("GET", NetworkURL, headers=meraki_headers)
     Network_output = json.loads(NetRes.text)
     text = 'Your network detail :\n\n'
@@ -51,7 +51,7 @@ def NetworkName():
     return(text)
 
 def ClientCount():  
-    ClientURL = 'https://api.meraki.com/api/v0/networks/L_602356450160822827/clients?perPage=100'
+    ClientURL = 'https://api.meraki.com/api/v0/networks/L_610800699462124274/clients?perPage=100'
     ClientName = requests.request("GET", ClientURL, headers=meraki_headers)
     ClientValue = json.loads(ClientName.text)
     client_count = str(len(ClientValue))
