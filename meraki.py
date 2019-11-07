@@ -29,7 +29,7 @@ def orgdetail():
     return(text)
 
 def networkdetail():  
-    NetworkURL = 'https://api.meraki.com/api/v0/networks/L_610800699462131530'
+    NetworkURL = 'https://api.meraki.com/api/v0/networks/'+ networkId
     NetRes = requests.request("GET", NetworkURL, headers=meraki_headers)
     Network_output = json.loads(NetRes.text)
     text = 'Your network detail :\n\n'
