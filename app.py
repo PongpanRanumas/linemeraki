@@ -47,6 +47,14 @@ def handle_text_message(event):
     
     if (text.lower()) == 'organization':
             line_bot_api.reply_message(event.reply_token,TextMessage(text=meraki.orgdetail()))
+    elif (text.lower()) == 'networkdetail':
+            line_bot_api.reply_message(event.reply_token,TextMessage(text=meraki.networkdetail()))
+    elif (text.lower()) == 'networkname':
+            line_bot_api.reply_message(event.reply_token,TextMessage(text=meraki.NetworkName()))
+    elif (text.lower()) == 'client':
+            line_bot_api.reply_message(event.reply_token,TextMessage(text=meraki.ClientCount()))
+    elif (text.lower()) == 'licenselist':
+            line_bot_api.reply_message(event.reply_token,TextMessage(text=meraki.Licenselist()))
     else : 
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text='What is '+text+' ((MerakiPongpan)) Not Understand'))
             
