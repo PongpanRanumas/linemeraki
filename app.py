@@ -45,7 +45,7 @@ def callback():
 def handle_text_message(event):
     text = event.message.text #message from user
     
-    if (text.lower()) == 'organization':
+    if (text.lower()) == 'organi':
             line_bot_api.reply_message(event.reply_token,TextMessage(text=meraki.orgdetail()))
     elif (text.lower()) == 'networkdetail':
             line_bot_api.reply_message(event.reply_token,TextMessage(text=meraki.networkdetail()))
@@ -53,7 +53,7 @@ def handle_text_message(event):
             line_bot_api.reply_message(event.reply_token,TextMessage(text=meraki.NetworkName()))
     elif (text.lower()) == 'client':
             line_bot_api.reply_message(event.reply_token,TextMessage(text=meraki.ClientCount()))
-    elif (text.lower()) == 'licenselist':
+    elif (text.lower()) == 'license':
             line_bot_api.reply_message(event.reply_token,TextMessage(text=meraki.Licenselist()))
     else : 
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text='What is '+text+' ((MerakiPongpan)) Not Understand'))
