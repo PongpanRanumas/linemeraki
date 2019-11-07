@@ -14,7 +14,7 @@ import sys
 
 api_key = '3fef26503381c0657934fd9c646f32c8d1c85deb'
 baseUrl = 'https://api.meraki.com/api/v0'
-networkId = 'L_602356450160822827'
+networkId = 'L_610800699462124274'
 meraki_headers = {'x-cisco-meraki-api-key': api_key, 'content-type': 'application/json'}
 
 meraki = Flask(__name__)
