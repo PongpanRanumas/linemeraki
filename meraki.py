@@ -14,7 +14,7 @@ import sys
 
 api_key = '3fef26503381c0657934fd9c646f32c8d1c85deb'
 baseUrl = 'https://api.meraki.com/api/v0'
-networkId = 'L_610800699462124274'
+networkId = 'L_610800699462131530'
 meraki_headers = {'x-cisco-meraki-api-key': api_key, 'content-type': 'application/json'}
 
 meraki = Flask(__name__)
@@ -29,7 +29,7 @@ def orgdetail():
     return(text)
 
 def networkdetail():  
-    NetworkURL = 'https://api.meraki.com/api/v0/networks/L_610800699462124274'
+    NetworkURL = 'https://api.meraki.com/api/v0/networks/L_610800699462131530'
     NetRes = requests.request("GET", NetworkURL, headers=meraki_headers)
     Network_output = json.loads(NetRes.text)
     text = 'Your network detail :\n\n'
@@ -40,7 +40,7 @@ def networkdetail():
     return(text)
 
 def NetworkName():  
-    NetNameURL = 'https://api.meraki.com/api/v0/organizations/602356450160806032/networks'
+    NetNameURL = 'https://api.meraki.com/api/v0/organizations/610800699462124274/networks'
     NetName = requests.request("GET", NetNameURL, headers=meraki_headers)
     Network_Name = json.loads(NetName.text)
     networkcount = str(len(Network_Name))
@@ -51,7 +51,7 @@ def NetworkName():
     return(text)
 
 def ClientCount():  
-    ClientURL = 'https://api.meraki.com/api/v0/networks/L_610800699462124274/clients?perPage=100'
+    ClientURL = 'https://api.meraki.com/api/v0/networks/L_610800699462131530/clients?perPage=100'
     ClientName = requests.request("GET", ClientURL, headers=meraki_headers)
     ClientValue = json.loads(ClientName.text)
     client_count = str(len(ClientValue))
@@ -61,7 +61,7 @@ def ClientCount():
     return(text)
 
 def Licenselist():  
-    LicenseURL = 'https://api.meraki.com/api/v0/organizations/602356450160806032/licenseState'
+    LicenseURL = 'https://api.meraki.com/api/v0/organizations/610800699462124274/licenseState'
     LicenseName = requests.request("GET", LicenseURL, headers=meraki_headers)
     LicenseValue = json.loads(LicenseName.text)
     #text = Text + str(LicenseValue['licensedDeviceCounts'])
