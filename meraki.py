@@ -27,6 +27,48 @@ def orgdetail():
     for row in OrgOut:
        text = text + "Org ID: " + str(row['id']) + "\nOrg Name: " + row['name'] + "\n\n"  
     return(text)
+
+def networkdetail():  
+    NetworkURL = 'https://api.meraki.com/api/v0/networks/L_602356450160822827'
+    NetRes = requests.request("GET", NetworkURL, headers=meraki_headers)
+    Network_output = json.loads(NetRes.text)
+    text = 'Your network detail :\n\n'
+    text = text + "Network id is         :" + Network_output['id']
+    text = text + "\nOrganization id is    :" + Network_output['organizationId']
+    text = text + "\nOrganization name is  :" + Network_output['name']
+    text = text + "\ntimeZone is           :" + Network_output['timeZone']
+    return(text)
+
+def NetworkName():  
+    NetNameURL = 'https://api.meraki.com/api/v0/organizations/602356450160806032/networks'
+    NetName = requests.request("GET", NetNameURL, headers=meraki_headers)
+    Network_Name = json.loads(NetName.text)
+    networkcount = str(len(Network_Name))
+    text = '\nYou have ' + networkcount + ' networks :\n\n'
+    print("")
+    for Name in Network_Name:
+       text = text + str(Name['name']+ "\n")
+    return(text)
+
+def ClientCount():  
+    ClientURL = 'https://api.meraki.com/api/v0/networks/L_602356450160822827/clients?perPage=100'
+    ClientName = requests.request("GET", ClientURL, headers=meraki_headers)
+    ClientValue = json.loads(ClientName.text)
+    client_count = str(len(ClientValue))
+    text = '\nYou have ' + client_count + ' active devices in your network\n'
+    for Name in ClientValue:
+        text = text + "\nIP "+str(Name['ip']) + " MAC " +str(Name['mac'])
+    return(text)
+
+def Licenselist():  
+    LicenseURL = 'https://api.meraki.com/api/v0/organizations/602356450160806032/licenseState'
+    LicenseName = requests.request("GET", LicenseURL, headers=meraki_headers)
+    LicenseValue = json.loads(LicenseName.text)
+    #text = Text + str(LicenseValue['licensedDeviceCounts'])
+    #print("You have license are \n"+ text)
+    text = ("You have license are \n")
+    text = text + str(LicenseValue['licensedDeviceCounts'])
+    return(text)
     
 #orgdetail()
 #networkdetail()
