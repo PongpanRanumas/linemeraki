@@ -12,7 +12,7 @@ import json
 import os
 import sys
 
-api_key = '52b4d8e2b0184e09b86059607b33655c641f531f'
+api_key = '3fef26503381c0657934fd9c646f32c8d1c85deb'
 baseUrl = 'https://api.meraki.com/api/v0'
 networkId = 'L_602356450160822827'
 meraki_headers = {'x-cisco-meraki-api-key': api_key, 'content-type': 'application/json'}
